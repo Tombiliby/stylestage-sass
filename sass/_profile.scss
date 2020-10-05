@@ -1,78 +1,73 @@
 .profile {
-  width: 95vw;
-  max-width: 80ch;
-  margin: 1rem auto 10vh;
-  padding: 1.25rem;
-  z-index: 1;
+  z-index: 2;
+  font-size: 16px;
 
-  h4 {
-    margin: 0;
-    color: var(--color-secondary);
-    text-align: center;
+  @media (min-width: 1024px) {
+    position: fixed;
+    bottom: 0;
+    right: 30px;
   }
 
   .container {
-    display: grid;
-    justify-items: center;
-    grid-gap: 1rem;
+    background: #F26052;
+    color: #fff;
+    padding: 0 30px 30px 30px;
+    line-height: 1.7;
+    text-align: center;
+    @include clearFix();
 
-    > a {
-      min-height: 2em;
-      border: 2px solid currentColor;
-      color: var(--color-secondary);
+    @media (min-width: 1024px) {
+      background: #025940;
+      text-align: left;
+      animation-name: jumping;
+      min-width: 250px;
+      animation-duration: 1s;
+      transition: ease all .4s;
+      margin-bottom: calc(-100% + 95px);
     }
+
+    a {
+      text-decoration: underline;
+    }
+
+    #profile-title {
+      line-height: 40px;
+      margin-top: 5px;
+      margin-bottom: 5px;
+      font-size: 18px;
+      text-transform: uppercase;
+    }
+  }
+
+  &:hover .container {
+    margin-bottom: 0%;
   }
 
   ul {
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    margin: 0;
-    padding: 0;
     list-style: none;
+    padding: 0;
+    margin: 0 0 30px;
 
     li {
-      display: flex;
-      padding: 0.45em;
-
-      span:nth-child(1) {
-        width: auto;
-        margin-right: 0.25em;
-        font-weight: var(--font-weight-strong);
+      span:first-child {
+        font-weight: bold;
       }
 
-      span:nth-child(2) {
-        flex-grow: 1;
-        word-break: break-word;
-
-        a {
-          color: inherit;
-        }
-      }
+      span {}
     }
   }
+}
 
-  @media (min-width: 180ch) {
-    position: fixed;
-    right: 2vmin;
-    bottom: 2vmin;
-    max-width: 30ch;
-    margin-bottom: 0;
-    border-radius: var(--border-radius);
-    background-color: var(--color-light);
-    box-shadow: 0 2px 5px rgba(color(primary), 0.15);
+@keyframes jumping {
+  0% {
+    margin-bottom: -100%;
+  }
 
-    ul {
-      justify-content: unset;
+  50% {
+    margin-bottom: 0%;
+  }
 
-      li {
-        padding: 0;
-
-        span:nth-child(1) {
-          width: 8ch;
-          margin-right: 0;
-        }
-      }
-    }
+  100% {
+    margin-bottom: calc(-100% + 95px);
   }
 }
