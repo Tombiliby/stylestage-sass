@@ -39,7 +39,8 @@
     }
   }
 
-  &:hover .container {
+  &:hover .container,
+  &:focus-within .container {
     margin-bottom: 0%;
   }
 
